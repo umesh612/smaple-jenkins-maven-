@@ -35,13 +35,6 @@
         <artifactId>jdk8</artifactId>
         <version>1.9.4</version>
     </dependency>
-	  <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
-<dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>2.2</version>
-</dependency>
-
   </dependencies>
   <build>
     <plugins>
@@ -111,7 +104,15 @@
                   <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
               </compilerArgs>
           </configuration>
-      </plugin>
+	</plugin>
+	<plugin>
+		<artifactId>maven-war-plugin</artifactId>
+		<version>2.4</version>
+		<configuration>
+			<warSourceDirectory>WebContent</warSourceDirectory>
+			<failOnMissingWebXml>false</failOnMissingWebXml>
+		</configuration>
+	</plugin>
     </plugins>
   </build>
 </project>
